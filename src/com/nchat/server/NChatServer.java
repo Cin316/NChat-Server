@@ -10,6 +10,7 @@ public class NChatServer {
 	boolean stopServer = false;
 	ArrayList<String> log = new ArrayList<String>(2);
 	ArrayList<User> connectedUsers = new ArrayList<User>(1);
+	ArrayList<Socket> connectedSockets = new ArrayList<Socket>(1);
 	
 	public NChatServer(){
 		
