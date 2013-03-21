@@ -20,6 +20,7 @@ public class UserNChatThread extends Thread{
 		user = new User( userSocket.getInetAddress().toString() );
 		parentServer.connectedUsers.add(user);
 		parentServer.connectedSockets.add(userSocket);
+		System.out.println("User connected:" + user.getName() + "(" + user.getIP() + ")!");
 		
 	}
 	
@@ -40,6 +41,8 @@ public class UserNChatThread extends Thread{
 			System.out.println("Error reading from client: " + user.getName() + "(" + user.getIP() + ").");
 			e.printStackTrace();
 		}
+		
+		System.out.println("User I/O established:" + user.getName() + "(" + user.getIP() + ")!");
 		
 		//Say that user has joined.
 		parentServer.log.add("User " + user.getName() + " has joined the chat!");

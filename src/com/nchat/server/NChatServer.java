@@ -15,6 +15,7 @@ public class NChatServer {
 	public NChatServer(){
 		
 		//Try to start connection on server port (Start.port).
+		System.out.println("Trying to connect to port " + Start.port + "...");
 		try{
 			connectionSocket = new ServerSocket(Start.port);
 		}catch(IOException e){
@@ -23,12 +24,14 @@ public class NChatServer {
 			System.exit(-1);
 		}
 		
+		System.out.println("Server started!");
 		this.startServer();
 		
 		//Accept new connections.
 		while(stopServer==false){
 			try {
 				new UserNChatThread(connectionSocket.accept(), this).start();
+				System.out.println("New user connected!");
 			} catch (IOException e) {
 				System.out.println("A user failed to connect.");
 				e.printStackTrace();
@@ -36,7 +39,7 @@ public class NChatServer {
 		}
 		
 		//Attempt to stop the server.
-		
+		System.out.println("Stopping server...");
 		try {
 			connectionSocket.close();
 		} catch (IOException e) {
