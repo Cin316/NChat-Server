@@ -3,7 +3,7 @@ package com.nchat.server;
 public class CommandCenter {
 	
 	public static String analyzeMessage(UserNChatThread user, String chat){
-		String outputText = "";
+		String outputText = "null test";
 		if( !chat.equals("") ){
 			
 			if( chat.charAt(0) == '/' ){
@@ -19,7 +19,12 @@ public class CommandCenter {
 	}
 	
 	public static String executeCommand(UserNChatThread user, String command){
-		return "Command Output.";
+		if(command.equals("/stop")){
+			user.parentServer.stopServer = true;
+			return "Stopping server...";
+		}else{
+			return "Invalid command.";
+		}
 	}
 	
 }
