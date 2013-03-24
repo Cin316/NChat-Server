@@ -11,6 +11,7 @@ public class NChatServer {
 	ArrayList<String> log = new ArrayList<String>(2);
 	ArrayList<User> connectedUsers = new ArrayList<User>(1);
 	ArrayList<Socket> connectedSockets = new ArrayList<Socket>(1);
+	ServerCommandsThread serverCommands = new ServerCommandsThread(this);
 	
 	public NChatServer(){
 		
@@ -52,6 +53,8 @@ public class NChatServer {
 	}
 
 	protected void startServer(){
+		
+		serverCommands.start();
 		
 	}
 	
