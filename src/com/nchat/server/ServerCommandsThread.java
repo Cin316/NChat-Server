@@ -27,7 +27,7 @@ public class ServerCommandsThread extends Thread {
 	private void printMessages(){
 		
 		for(int k=0; k < parentServer.log.size()-outputLine; k++){
-			System.out.println(parentServer.log.get(outputLine));
+			System.out.println("[Chat] " +parentServer.log.get(outputLine));
 			outputLine++;
 		}
 		
